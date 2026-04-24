@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { ChapterNav } from "@/components/ChapterNav";
 import { HeroNetworkVisual } from "@/components/HeroNetworkVisual";
 
 type DeckHydratorProps = {
@@ -99,6 +100,7 @@ export function DeckHydrator({ html }: DeckHydratorProps) {
 
   return (
     <>
+      <ChapterNav />
       <main
         ref={ref}
         className="deck-page"
