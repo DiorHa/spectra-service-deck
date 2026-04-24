@@ -713,8 +713,8 @@
     width: auto;
     height: auto;
     object-fit: contain;
-    opacity: 0.9;
-    filter: brightness(0) invert(92%) sepia(5%) saturate(120%) hue-rotate(183deg) brightness(105%) contrast(94%);
+    opacity: 0.72;
+    filter: brightness(0) saturate(100%) invert(92%) contrast(96%);
   }
   .partner-logo.etl-logo { max-width: 112px; max-height: 30px; }
   .partner-logo.acl-logo { max-width: 118px; max-height: 28px; }
@@ -791,8 +791,8 @@
     width: auto;
     height: auto;
     object-fit: contain;
-    opacity: 0.7;
-    filter: grayscale(1) brightness(1.08) contrast(0.98);
+    opacity: 0.72;
+    filter: brightness(0) saturate(100%) invert(92%) contrast(96%);
     transition: none;
   }
   .brand-logo.dt-logo { max-width: 110px; max-height: 24px; }
@@ -2363,5 +2363,4 @@
       }
     }
   }
-
 
