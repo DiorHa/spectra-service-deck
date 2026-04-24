@@ -59,6 +59,7 @@ export function ChapterNav() {
   const [activeId, setActiveId] = useState<string>(CHAPTERS[0].id);
   const [hidden, setHidden] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [onLight, setOnLight] = useState(false);
   const lastScrollY = useRef(0);
   const navRef = useRef<HTMLElement>(null);
 
@@ -90,6 +91,10 @@ export function ChapterNav() {
         }
         const chapterId = SECTION_TO_CHAPTER.get(topId);
         if (chapterId) setActiveId(chapterId);
+        if (topId) {
+          const topEl = document.getElementById(topId);
+          setOnLight(!!topEl?.classList.contains("light"));
+        }
       },
       {
         rootMargin: "-20% 0px -40% 0px",
@@ -148,7 +153,7 @@ export function ChapterNav() {
       ref={navRef}
       className={`chapter-nav${hidden ? " is-hidden" : ""}${
         mounted ? " is-mounted" : ""
-      }`}
+      }${onLight ? " on-light" : ""}`}
       aria-label="Deck chapters"
     >
       <ul className="chapter-nav-list">
