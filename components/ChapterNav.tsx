@@ -29,16 +29,16 @@ const CHAPTERS: Chapter[] = [
     sections: ["slide-03", "slide-04", "slide-05", "slide-06", "slide-08"]
   },
   {
-    id: "delivery",
-    label: "Delivery Model",
-    target: "slide-14",
-    sections: ["slide-14", "slide-15", "slide-16"]
-  },
-  {
     id: "cases",
     label: "Case Studies",
     target: "slide-09",
     sections: ["slide-09", "slide-10", "slide-11", "slide-12", "slide-13"]
+  },
+  {
+    id: "delivery",
+    label: "Delivery Model",
+    target: "slide-14",
+    sections: ["slide-14", "slide-15", "slide-16"]
   },
   {
     id: "next",
