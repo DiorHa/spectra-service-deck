@@ -1,6 +1,11 @@
 "use client";
 
 import { useEffect, useMemo, useState, type CSSProperties } from "react";
+
+type MotionPathStyle = CSSProperties & {
+  offsetPath: string;
+  offsetRotate: string;
+};
 import { createPortal } from "react-dom";
 import { motion, useReducedMotion } from "framer-motion";
 
@@ -26,12 +31,10 @@ function RouteParticle({
     <motion.circle
       r="2.2"
       fill="rgba(232,126,74,0.95)"
-      style={
-        {
-          offsetPath: `path("${path}")`,
-          offsetRotate: "0deg"
-        } as CSSProperties
-      }
+      style={{
+        offsetPath: `path("${path}")`,
+        offsetRotate: "0deg"
+      } as MotionPathStyle}
       initial={{ opacity: 0 }}
       animate={{ opacity: [0, 0.95, 0], offsetDistance: ["0%", "100%"] }}
       transition={{
@@ -80,9 +83,7 @@ function HeroNetworkVisualInner() {
         opacity: [0.18, 0.04, 0.18]
       };
 
-  const routeReveal = reduceMotion
-    ? { pathLength: 1, opacity: 1 }
-    : { pathLength: 1, opacity: 1 };
+  const routeReveal = { pathLength: 1, opacity: 1 };
 
   return (
     <div className="hero-network-visual" aria-label="Spectra delivery network visual">
