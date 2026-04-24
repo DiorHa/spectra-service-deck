@@ -797,13 +797,12 @@
     width: auto;
     height: auto;
     object-fit: contain;
-    opacity: 0.76;
-    filter: grayscale(1) brightness(1.05) contrast(0.96);
+    opacity: 0.7;
+    filter: grayscale(1) brightness(1.08) contrast(0.98);
     transition:
       opacity 0.24s ease,
       filter 0.24s ease,
-      transform 0.24s ease,
-      drop-shadow 0.24s ease;
+      transform 0.24s ease;
   }
   .brand-logo.dt-logo { max-width: 110px; max-height: 24px; }
   .brand-logo.trudo-logo { max-width: 100px; max-height: 27px; }
@@ -824,7 +823,7 @@
   @media (hover: hover) and (pointer: fine) {
     .brand-cell:hover {
       transform: translateY(-4px);
-      box-shadow: 0 14px 28px rgba(0,0,0,0.16);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
       z-index: 1;
     }
     .brand-cell:hover::before {
@@ -833,11 +832,8 @@
     }
     .brand-cell:hover .brand-logo {
       opacity: 1;
-      filter: none;
-      transform: scale(1.04);
-    }
-    .brand-cell:hover:not(.muted) {
-      background: rgba(255,255,255,0.02);
+      filter: grayscale(1) brightness(1.08) contrast(0.98);
+      transform: scale(1.03);
     }
   }
   @media (prefers-reduced-motion: reduce) {
