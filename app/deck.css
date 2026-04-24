@@ -758,12 +758,8 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    transform: translateY(0) scale(1);
-    transition:
-      transform 0.24s ease,
-      box-shadow 0.24s ease,
-      background-color 0.24s ease,
-      opacity 0.24s ease;
+    transform: none;
+    transition: none;
   }
   .brand-cell::before {
     content: attr(data-tooltip);
@@ -784,9 +780,7 @@
     white-space: nowrap;
     opacity: 0;
     pointer-events: none;
-    transition:
-      opacity 0.24s ease,
-      transform 0.24s ease;
+    transition: none;
     box-shadow: 0 10px 22px rgba(0,0,0,0.18);
     z-index: 2;
   }
@@ -799,10 +793,7 @@
     object-fit: contain;
     opacity: 0.7;
     filter: grayscale(1) brightness(1.08) contrast(0.98);
-    transition:
-      opacity 0.24s ease,
-      filter 0.24s ease,
-      transform 0.24s ease;
+    transition: none;
   }
   .brand-logo.dt-logo { max-width: 110px; max-height: 24px; }
   .brand-logo.trudo-logo { max-width: 100px; max-height: 27px; }
@@ -819,22 +810,6 @@
     font-size: 11px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-  }
-  @media (hover: hover) and (pointer: fine) {
-    .brand-cell:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-      z-index: 1;
-    }
-    .brand-cell:hover::before {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-    .brand-cell:hover .brand-logo {
-      opacity: 1;
-      filter: grayscale(1) brightness(1.08) contrast(0.98);
-      transform: scale(1.03);
-    }
   }
   @media (prefers-reduced-motion: reduce) {
     .brand-cell,
