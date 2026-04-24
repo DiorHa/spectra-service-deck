@@ -405,7 +405,7 @@
     margin-bottom: var(--heading-gap);
     text-wrap: balance;
   }
-  h1.display em { font-style: italic; font-weight: 700; }
+  h1.display em { font-style: italic; font-weight: 700; margin-right: 0.08em; }
 
   h2.display {
     font-size: clamp(38px, 4.4vw, 64px);
@@ -415,7 +415,7 @@
     margin-bottom: var(--heading-gap);
     text-wrap: balance;
   }
-  h2.display em { font-style: italic; font-weight: 700; }
+  h2.display em { font-style: italic; font-weight: 700; margin-right: 0.08em; }
 
   .lede {
     font-size: clamp(16px, 1.1vw, 18px);
