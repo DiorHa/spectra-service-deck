@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 type Chapter = {
   id: string;
   label: string;
+  mobileLabel?: string;
   target: string;
   sections: string[];
 };
@@ -13,36 +14,42 @@ const CHAPTERS: Chapter[] = [
   {
     id: "overview",
     label: "Overview",
+    mobileLabel: "Overview",
     target: "slide-01",
     sections: ["slide-01"]
   },
   {
     id: "problem",
     label: "Problem",
+    mobileLabel: "Challenges",
     target: "slide-02",
     sections: ["slide-02", "slide-07"]
   },
   {
     id: "services",
-    label: "Services",
+    label: "Service Model",
+    mobileLabel: "Model",
     target: "slide-03",
     sections: ["slide-03", "slide-04", "slide-05", "slide-06", "slide-08"]
   },
   {
     id: "cases",
     label: "Case Studies",
+    mobileLabel: "Cases",
     target: "slide-09",
     sections: ["slide-09", "slide-10", "slide-11", "slide-12", "slide-13"]
   },
   {
     id: "delivery",
     label: "Delivery Model",
+    mobileLabel: "Delivery",
     target: "slide-14",
     sections: ["slide-14", "slide-15", "slide-16"]
   },
   {
     id: "next",
     label: "Next Steps",
+    mobileLabel: "Next",
     target: "slide-17",
     sections: ["slide-17", "slide-18"]
   }
@@ -60,11 +67,16 @@ export function ChapterNav() {
   const [hidden, setHidden] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [onLight, setOnLight] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const lastScrollY = useRef(0);
   const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     setMounted(true);
+    const media = window.matchMedia("(max-width: 720px)");
+    const syncIsMobile = () => setIsMobile(media.matches);
+    syncIsMobile();
+    media.addEventListener("change", syncIsMobile);
 
     const slides = CHAPTERS.flatMap((c) =>
       c.sections
@@ -115,7 +127,9 @@ export function ChapterNav() {
         const hovered = nav?.matches(":hover") ?? false;
         const focused = nav?.contains(document.activeElement) ?? false;
 
-        if (y < 120) {
+        if (media.matches) {
+          setHidden(false);
+        } else if (y < 120) {
           setHidden(false);
         } else if (!hovered && !focused) {
           if (delta > 6) setHidden(true);
@@ -132,6 +146,7 @@ export function ChapterNav() {
     return () => {
       observer.disconnect();
       window.removeEventListener("scroll", onScroll);
+      media.removeEventListener("change", syncIsMobile);
     };
   }, []);
 
@@ -165,9 +180,10 @@ export function ChapterNav() {
                 activeId === chapter.id ? " is-active" : ""
               }`}
               aria-current={activeId === chapter.id ? "true" : undefined}
+              aria-label={chapter.label}
               onClick={(e) => onClick(e, chapter.target)}
             >
-              {chapter.label}
+              {isMobile ? chapter.mobileLabel ?? chapter.label : chapter.label}
             </a>
           </li>
         ))}
