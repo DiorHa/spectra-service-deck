@@ -1970,10 +1970,10 @@
     }
     .partner-grid,
     .brands-grid { grid-template-columns: 1fr 1fr; }
-    .brand-cell,
-    .partner-cell { border-right: 1px solid rgba(255,255,255,0.07); }
-    .brand-cell:nth-child(4n),
-    .partner-cell:nth-child(3n),
+    .brand-cell { border-right: 1px solid rgba(255,255,255,0.07); }
+    .partner-cell { border-right: 1px solid var(--dark-divider); }
+    .brand-cell:nth-child(4n) { border-right: 1px solid rgba(255,255,255,0.07); }
+    .partner-cell:nth-child(3n) { border-right: 1px solid var(--dark-divider); }
     .brand-cell:nth-child(2n),
     .partner-cell:nth-child(2n) { border-right: none; }
     .brand-cell:nth-last-child(-n+2),
